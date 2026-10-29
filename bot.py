@@ -1,7 +1,8 @@
 import os
 import telebot
 
-TOKEN = os.getenv("BOT_TOKEN")
+TOKEN = os.getenv("TOKEN") or os.getenv("bot_token") or os.getenv("BOT_TOKEN")
+print("TOKEN FOUND:", "yes" if TOKEN else "no")
 bot = telebot.TeleBot(TOKEN)
 
 @bot.message_handler(func=lambda message: True)
